@@ -33,6 +33,41 @@ To overcome these challenges, this project integrates:
 
      b. ROUGE — linguistic similarity to expert references
 
+# ⚙️ Behavior Design: Retrieval vs LLM Fallback
+
+The system is designed with a hybrid knowledge retrieval architecture, combining structured medical databases with the reasoning capability of a Large Language Model (LLM).
+
+When a user asks a question, the workflow is as follows:
+
+        ┌──────────────────────────┐
+        │        User Query        │
+        └────────────┬─────────────┘
+                     │
+             (1) Text Embedding
+                     │
+                     ▼
+        ┌──────────────────────────┐
+        │  Vector Database (RAG)   │
+        │  • Retrieves top-k docs  │
+        │  • Computes relevance    │
+        └────────────┬─────────────┘
+                     │
+     ┌───────────────┼────────────────┐
+     │ Relevant docs found?           │
+     │ (Context Recall > threshold)   │
+     └───────────────┬────────────────┘
+                     │
+          Yes        │                     No
+      ┌────────┐     │               ┌──────────────┐
+      │ LLM +  │     │               │ Base LLM     │
+      │ Context│     │               │ (Fallback)   │
+      └────┬───┘     │               └─────┬────────┘
+           │         │                     │
+           ▼                               ▼  
+    Generates context-aware  Generates general explanation
+      medical response              with warning
+
+
 # 📊 Results
  **1. Successfully deployed a web-based chatbot prototype:**   
       👉 https://medicalchatbot-raissa.streamlit.app
@@ -51,4 +86,7 @@ To overcome these challenges, this project integrates:
   **3. Demonstrated improvement in context recall and accuracy of dosage/treatment recommendations during evaluation.**
 <img width="1122" height="592" alt="image" src="https://github.com/user-attachments/assets/080d1f71-f5c8-463c-9f1a-d71e09dc649a" />
 
+  **4. Fallback mode (RAG inactive):**
+    If no relevant data are found, the system automatically reverts to the base LLM (OpenAI API) to generate a general medical explanation, displaying a visible warning that the answer is not based on verified medical data.
+  <img width="1084" height="404" alt="image" src="https://github.com/user-attachments/assets/d813879b-5fd6-4005-ac7b-74bb18703490" />
 
