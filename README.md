@@ -34,18 +34,21 @@ To overcome these challenges, this project integrates:
      b. ROUGE — linguistic similarity to expert references
 
 # 📊 Results
-Successfully deployed a web-based chatbot prototype:
-👉 https://medicalchatbot-raissa.streamlit.app
- (the website remains accessible, but the Q&A feature is currently inactive as the API connection has been disabled)
+ **1. Successfully deployed a web-based chatbot prototype:**   
+      👉 https://medicalchatbot-raissa.streamlit.app
+       (the website remains accessible, but the Q&A feature is currently inactive as the API connection has been disabled)
 
 <img width="1220" height="666" alt="image" src="https://github.com/user-attachments/assets/6fa2da09-b875-48ba-ac6e-0ece4932710d" />
 <img width="1168" height="634" alt="image" src="https://github.com/user-attachments/assets/b4ac3035-1a91-4fa2-b447-be318c1f15b9" />
 
-Previously achieved high Answer Relevance (0.9072) and strong faithfulness after integrating the RAG pipeline.
+
+  **2. Previously achieved high Answer Relevance (0.9072) and strong faithfulness after integrating the RAG pipeline.**
 <img width="1134" height="622" alt="image" src="https://github.com/user-attachments/assets/c098613c-ea5f-4c1f-9526-2b8a0a868b2c" />
 <img width="760" height="396" alt="image" src="https://github.com/user-attachments/assets/23fcd138-f0dc-4644-9899-eff385398a45" />
 
-Demonstrated improvement in context recall and accuracy of dosage/treatment recommendations during evaluation.
+
+
+  **3. Demonstrated improvement in context recall and accuracy of dosage/treatment recommendations during evaluation.**
 <img width="1122" height="592" alt="image" src="https://github.com/user-attachments/assets/080d1f71-f5c8-463c-9f1a-d71e09dc649a" />
 
 
